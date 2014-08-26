@@ -1,2 +1,2 @@
-rlimgprogtest
+Real Image Program Test
 =============
