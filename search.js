@@ -12,7 +12,7 @@ words.splice(0,2);
 
 var fs = require('fs');
 var index = null;
-var notToIndexWords = ["a", "an", "is", "index", "it", "for", "in"];
+var notToIndexWords = JSON.parse(fs.readFileSync("common_words.json"));
 
 fs.readFile('index.json', function read(err, data) {
     if (err) {

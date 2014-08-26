@@ -19,7 +19,7 @@ if(filename.match(/.exe/)){
 
 var fs = require('fs');
 var index =  JSON.parse(fs.readFileSync("index.json","utf8")) || {};
-var notToIndexWords = ["a", "an", "is", "index", "it", "for", "in"];
+var notToIndexWords = JSON.parse(fs.readFileSync("common_words.json"));
 
 //var mongoose = require('mongoose');
 //var Schema = mongoose.Schema;
