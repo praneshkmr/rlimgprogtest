@@ -34,7 +34,35 @@ var notToIndexWords = JSON.parse(fs.readFileSync("common_words.json"));
 //var Index = mongoose.model( 'IndexSchema');
 //mongoose.connect( 'mongodb://localhost/rlimgprogtest');
 
+var async = require('async');
+var queue = async.queue(function(word, callback) {
+    if(notToIndexWords.indexOf(word)== -1){
+        if(index.hasOwnProperty(word)){
+            var value = index[word];
+            value.forEach(function(obj){
+                if(obj.file == filename){
+                    obj.count += 1;
+                    callback();
+                }
+                else{
+                    value.push({ file : filename , count : 1 });
+                    callback();
+                }
+            });
+        }
+        else{
+            index[word] = [{ file : filename , count : 1 }];
+            callback();
+        }
+    }
+    else{
+        callback();
+    }
+}, 1);
 
+queue.drain = function() {
+    fs.writeFileSync("index.json",JSON.stringify(index,null,4));
+};
 
 fs.readFile(filenameFull, 'utf8', function(err, data) {
     if (err) throw err;
@@ -54,23 +82,8 @@ fs.readFile(filenameFull, 'utf8', function(err, data) {
 //                i.save();
 //            }
 //        });})(word);
-        if(notToIndexWords.indexOf(word)== -1){
-            if(index.hasOwnProperty(word)){
-                var value = index[word];
-                value.forEach(function(obj){
-                    if(obj.file == filename){
-                        obj.count += 1;
-                    }
-                    else{
-                        value.push({ file : filename , count : 1 });
-                    }
-                });
-            }
-            else{
-                index[word] = [{ file : filename , count : 1 }];
-            }
-        }
-        fs.writeFileSync("index.json",JSON.stringify(index,null,4));
+        queue.push(word);
+
     });
 });
 
