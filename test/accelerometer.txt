@@ -1,0 +1,1 @@
+An accelerometer is a device that measures proper acceleration. Proper acceleration is not the same as coordinate acceleration (rate of change of velocity).

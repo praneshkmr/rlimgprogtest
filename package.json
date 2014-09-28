@@ -1,0 +1,30 @@
+{
+  "name": "rlimgprogtest",
+  "version": "0.1.1",
+  "description": "Module to Index and Search words from a text file",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/praneshkmr/rlimgprogtest.git"
+  },
+  "keywords": [
+    "index",
+    "search"
+  ],
+  "author": "Pranesh Kumar.R <praneshkmr@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/praneshkmr/rlimgprogtest/issues"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "redis": "^0.12.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  }
+}
