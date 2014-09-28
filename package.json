@@ -1,6 +1,6 @@
 {
   "name": "rlimgprogtest",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Module to Index and Search words from a text file",
   "main": "index.js",
   "scripts": {
