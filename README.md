@@ -1,19 +1,18 @@
 Real Image Program Test
-=============
-Prerequisite
+=======================
 
-Please install Node.js to run this scripts
-and do "npm install async" in the root folder to install dependencies
+Prerequisite
+============
+
+The following are needed to run this library :
+
+ 1) Node.js
+ 
+ 2) Redis
 
 Instructions
+============
 
-1) Indexing
- "node index.js <path_to_text_file>"
+1) After cloning the repository, execute "npm install".
 
- This command creates a index file called index.json in root folder.
-
-2) Searching
- "node search <word1> <word2> .."
-
- This command searched the index.json file for the given words and
-  outputs the location of the words in the file and number of times it occurred.
+2) Execute "npm test" for testing this library.
